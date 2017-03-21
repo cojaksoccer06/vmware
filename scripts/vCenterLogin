@@ -1,0 +1,10 @@
+#Used to login to vCenter via PowerCLI
+
+
+$vCenterInstance = "vCenter base URL or IP Address"
+$vCenterUser = "User account. Usually domain\username"
+$vCenterPass = "Password associated with username"
+
+
+#Connects to the vCenter with Username and password bypassing the security warning
+Connect-VIServer $vCenterInstance -User $vCenterUser -Password $vCenterPass -WarningAction SilentlyContinue

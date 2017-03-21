@@ -1,0 +1,11 @@
+#Shutting Down and Removing VMs
+
+#Grabs any vm with the name starting with KMSTEST
+#You can also import a list of servers in a CSV here as well
+$serverNames  = Get-VM -Name KMSTEST*
+
+#Takes each server in the Get-VM, stops it and deletes it from disk
+foreach ($serverName in $serverNames) {
+	Stop-VM -VM $serverName -Confirm:$false
+	Remove-VM  -VM $serverName -DeleteFromDisk -Confirm:$false
+}
